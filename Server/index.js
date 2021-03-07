@@ -88,4 +88,76 @@ app.get("/fish", (req,res) => {
         }
     })
 })
+app.get("/equipment", (req,res) => {
+    connection.query ("SELECT * FROM equipment", (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+})
+app.get("/employee", (req,res) => {
+    connection.query ("SELECT * FROM employee", (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+})
+app.get("/monitoring", (req,res) => {
+    connection.query ("SELECT * FROM monitoring", (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+})
+app.get("/admin", (req,res) => {
+    connection.query ("SELECT * FROM admin inner join a_email using (A_ID) inner join a_phone using (A_ID)", (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+})
+app.get("/buyer", (req,res) => {
+    connection.query ("SELECT * FROM buyer inner join b_email using (B_ID) inner join b_phone using (B_ID)", (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+})
+// app.get("/equipment", (req,res) => {
+//     connection.query ("SELECT * FROM equipment", (error, rows,fields)=> {
+//         if(!!error) {
+//             console.log("error in query");
+//         }
+//         else{
+//             console.log("successful query");
+//             console.log(rows);
+//             res.send(rows);
+//         }
+//     })
+// })
 app.listen(2800, () => console.log("listening to port 2800"));

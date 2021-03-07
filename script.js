@@ -127,3 +127,119 @@ const handleFish = () => {
         })
     console.log("click")
 }
+
+// equipmentTable
+const handleEquipment = () => {
+    fetch("http://localhost:2800/equipment")
+    .then(res => res.json())
+    .then(data => {
+        console.log("euipment",data)
+        const tableBody = document.getElementById("equipmentTable");
+        let dataHTML = "";
+        for(let i=0;i<data.length;i++){
+            dataHTML += `<tr> 
+            <td>${data[i].Eq_ID} </td>
+            <td>${data[i].BuyingDate} </td> 
+            <td>${data[i].E_Type} </td>
+            <td>${data[i].E_Name} </td>
+            <td>${data[i].Eq_Role}</td>
+            <td>${data[i].Br_ID} </td>
+            </tr>`
+        }
+        console.log(dataHTML)
+        tableBody.innerHTML = dataHTML;
+        })
+    console.log("click")
+}
+
+const handleEmployee = () => {
+    fetch("http://localhost:2800/employee")
+    .then(res => res.json())
+    .then(data => {
+        console.log("employee",data)
+        const tableBody = document.getElementById("employeeTable");
+        let dataHTML = "";
+        for(let i=0;i<data.length;i++){
+            dataHTML += `<tr> 
+            <td>${data[i].E_ID} </td>
+            <td>${data[i].Br_ID} </td> 
+            <td>${data[i].E_Name} </td>
+            <td>${data[i].E_WorkingHour} </td>
+            <td>${data[i].E_Salary}</td>
+            <td>${data[i].E_Status}</td>
+            <td>${data[i].E_Role} </td>
+            </tr>`
+        }
+        console.log(dataHTML)
+        tableBody.innerHTML = dataHTML;
+        })
+    console.log("click")
+}
+
+const handleMonitoring = () => {
+    fetch("http://localhost:2800/monitoring")
+    .then(res => res.json())
+    .then(data => {
+        console.log("employee",data)
+        const tableBody = document.getElementById("monitoringTable");
+        let dataHTML = "";
+        for(let i=0;i<data.length;i++){
+            dataHTML += `<tr> 
+            <td>${data[i].M_ID} </td>
+            <td>${data[i].Br_ID} </td> 
+            <td>${data[i].Humidity} </td>
+            <td>${data[i].Temperature} </td>
+            <td>${data[i].WaterQuality}</td>
+            <td>${data[i].Type}</td>
+            </tr>`
+        }
+        console.log(dataHTML)
+        tableBody.innerHTML = dataHTML;
+        })
+    console.log("click")
+}
+const handleAdmin = () => {
+    fetch("http://localhost:2800/admin")
+    .then(res => res.json())
+    .then(data => {
+        console.log("employee",data)
+        const tableBody = document.getElementById("adminTable");
+        let dataHTML = "";
+        for(let i=0;i<data.length;i++){
+            dataHTML += `<tr> 
+            <td>${data[i].A_ID} </td>
+            <td>${data[i].Login_ID} </td> 
+            <td>${data[i].A_Name} </td>
+            <td>${data[i].A_Email_ID} </td>
+            <td>${data[i].A_Address}</td>
+            <td>${data[i].A_Phone_No}</td>
+            </tr>`
+        }
+        console.log(dataHTML)
+        tableBody.innerHTML = dataHTML;
+        })
+    console.log("click")
+}
+
+const handleBuyer = () => {
+    fetch("http://localhost:2800/buyer")
+    .then(res => res.json())
+    .then(data => {
+        console.log("employee",data)
+        const tableBody = document.getElementById("buyerTable");
+        let dataHTML = "";
+        for(let i=0;i<data.length;i++){
+            dataHTML += `<tr> 
+            <td>${data[i].B_ID} </td>
+            <td>${data[i].Login_ID} </td> 
+            <td>${data[i].B_Name} </td>
+            <td>${data[i].B_Email_ID} </td>
+            <td>${data[i].B_Address}</td>
+            <td>${data[i].B_Phone_No}</td>
+            </tr>`
+        }
+        console.log(dataHTML)
+        tableBody.innerHTML = dataHTML;
+        })
+    console.log("click")
+}

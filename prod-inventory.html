@@ -52,39 +52,46 @@
     </div>
 
     <br><br>
-    <div id="equipments">
+    <div onclick="handleEquipment()" >
       <div class="container">
         <h3>Equipments</h3>
         <table id="customers">
-          <tr>
-            <th>Equepments Id</th>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Unit Price</th>
-            <th>Quantity</th>
-            <th>Buying Date</th>
-            
-          </tr>
+          <thead>
+            <tr>
+              <th>Equepments Id</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Buying Date</th>
+              <th>Role</th>
+              <th>Branch ID</th>   
+            </tr>
+          </thead>
+          <tbody id="equipmentTable">
+
+          </tbody>
           
         </table>
       </div>
     </div>
     <br><br>
-    <div id="employee">
+    <div onclick="handleEmployee()" id="employee">
       <div class="container">
         <h3>Employee Table</h3>
         <table id="customers">
-          <tr>
-            <th>Employee Id</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Role</th>
-            <th>Working Hour</th>
-            <th>Salary</th>
-            <th>Email Id</th>
-            <th>Status</th>
-            
-          </tr>
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>Branch ID</th>
+              <th>Name</th>
+              <th>Working Hour</th>
+              <th>Salary</th>
+              <th>Status</th>
+              <th>Role</th>            
+            </tr>
+          </thead>
+          <tbody id="employeeTable">
+
+          </tbody>
           
         </table>
       </div>

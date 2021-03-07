@@ -12,24 +12,30 @@
 </head>
 <body>
    
-    <h3>Monitoring</h3>
-    <div id="shinv">
-      <div class="container">
-        <h3>Shed Invironment</h3>
+  <div id="shinv">
+    <div onclick="handleMonitoring()" class="container">
+      <!-- <h3>Shed Invironment</h3> -->
+      <h3>Monitoring</h3>
         <table id="customers">
-          <tr>
-            <th>M Id</th>
-            <th>Shed No</th>
-            <th>Shed Type</th>
-            <th>Temparature</th>
-            <th>Humidity</th>
-            
-          </tr>
-          
+          <thead>
+            <tr>
+              <th>Monitoring Id</th>
+              <th>Branch ID</th>
+              <th>Humidity</th>
+              <th>Temparature</th>
+              <th>Type</th>
+              <th>Water Quality</th>
+              
+            </tr>
+          </thead>
+          <tbody id="monitoringTable">
+
+          </tbody>
         </table>
       </div>
     </div>
     <br><br>
+    <!-- <br><br>
     <div id="pinv">
       <div class="container">
         <h3>Pond Invironment</h3>
@@ -50,6 +56,6 @@
     </div>
 
     
-    </div>
+    </div> -->
 </body>
 </html>
