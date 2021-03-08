@@ -355,6 +355,7 @@ const handleCattleUpdate = () => {
         .then(json => console.log(json))
         .catch(error => console.log(error));
         document.getElementById("cattleUpdateModal").style.display = "none"
+        alert("Successfully Updated")
 
 
 }
@@ -436,6 +437,8 @@ const handleCattleInsert = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
+        document.getElementById("cattleInsertModal").style.display = "none"
+        alert("Successfully Inserted")
 
 }
 
@@ -459,6 +462,9 @@ const handleCattleDelete = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
+        document.getElementById("deleteCattleModal").style.display = "none"
+        alert("Successfully Deleted")
+
 
 }
 
@@ -527,6 +533,7 @@ const handleGoatUpdate = () => {
         .then(json => console.log(json))
         .catch(error => console.log(error));
         document.getElementById("goatUpdateModal").style.display = "none"
+        alert("Successfully Updated");
 
 
 }
@@ -608,8 +615,7 @@ const handleGoatInsert = () => {
         .then(json => console.log(json))
         .catch(error => console.log(error));
         document.getElementById("goatInsertModal").style.display = "none"
-
-
+        alert("Successfully Inserted")
 }
 
 
@@ -632,6 +638,7 @@ const handleGoatDelete = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
-        document.getElementById("deleteGoatModal").style.display = "none"
+        document.getElementById("deleteGoatModal").style.display = "none";
+        alert("Successfully deleted")
 
 }

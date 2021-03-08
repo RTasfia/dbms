@@ -14,13 +14,21 @@ const auth = firebase.auth();
 
 const signupWithEmailAndPassword = () => {
   console.log("click")
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
 
   const promise = auth.createUserWithEmailAndPassword(email,password)
   .then(()=> {
-    // alert ("success");
-    location.replace("../branch.html")
+    alert ("Succefully Signup");
+    if(email=="rifa@gmail.com"){
+      console.log("Admin")
+      location.replace("../branch.html")
+    }
+    else{
+      console.log("buyer")
+      location.replace("../online-shop.html")
+    }
+    // location.replace("../online-shop.html")
   })
   promise.catch(e => alert(e.message))
 
@@ -28,14 +36,19 @@ const signupWithEmailAndPassword = () => {
   e.preventdefault();
 }
 const signinWithEmailAndPassword = () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
   console.log(email, password)
 
   const promise = auth.signInWithEmailAndPassword(email, password)
   .then(()=> {
-    // alert ("success");
-    location.replace("../branch.html")
+    alert ("Succefully Signin");
+    if(email="rifa@gmail.com"){
+      location.replace("../branch.html")
+    }
+    else{
+      location.replace("../our_product.html")
+    }
   })
   promise.catch(e => alert(e.message));
 
