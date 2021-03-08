@@ -151,6 +151,49 @@ const handleEquipment = () => {
         })
     console.log("click")
 }
+const handleproduct = () => {
+    fetch("http://localhost:2800/avlproduct")
+        .then(res => res.json())
+        .then(data => {
+            console.log("euipment", data)
+            const tableBody = document.getElementById("productTable");
+            let dataHTML = "";
+            for (let i = 0; i < data.length; i++) {
+                dataHTML += `<tr> 
+            <td>${data[i].P_ID} </td>
+            <td>${data[i].P_Type} </td>
+            <td>${data[i].P_Name} </td>
+            <td>${data[i].P_Amount} </td> 
+            <td>${data[i].P_Price}</td>
+            </tr>`
+            }
+            console.log(dataHTML)
+            tableBody.innerHTML = dataHTML;
+        })
+    console.log("click")
+}
+const handlesupply = () => {
+    fetch("http://localhost:2800/supply")
+        .then(res => res.json())
+        .then(data => {
+            console.log("euipment", data)
+            const tableBody = document.getElementById("supplyTable");
+            let dataHTML = "";
+            for (let i = 0; i < data.length; i++) {
+                dataHTML += `<tr> 
+            <td>${data[i].Fo_ID} </td>
+            <td>${data[i].Fo_Name} </td>
+            <td>${data[i].Fo_Type} </td>
+            <td>${data[i].Fo_For} </td> 
+            <td>${data[i].Price}</td>
+            <td>${data[i].Br_ID}</td>
+            </tr>`
+            }
+            console.log(dataHTML)
+            tableBody.innerHTML = dataHTML;
+        })
+    console.log("click")
+}
 
 const handleEmployee = () => {
     fetch("http://localhost:2800/employee")
@@ -246,63 +289,64 @@ const handleBuyer = () => {
 
 
 // CATTLE UPDATE, INSERT, DELETE
-// UPDATE
-var updateInfo = [];
+
 // CATTLE ALL MODAL SHOW
 const cattleUpdateFunc = () => {
-    document.getElementById("updateModal").style.display = "block"
+    document.getElementById("cattleUpdateModal").style.display = "block"
     console.log("updateclick")
 }
 const cattleInsertFunc = () => {
-    document.getElementById("insertModal").style.display = "block"
+    document.getElementById("cattleInsertModal").style.display = "block"
 }
 
 const cattleDeleteFunc = () => {
-    document.getElementById("deleteModal").style.display = "block"
+    document.getElementById("deleteCattleModal").style.display = "block"
 }
 
 // CATTLE ALL MODAL CLOSE
 const cattleUpdateClose = () => {
-    document.getElementById("updateModal").style.display = "none"
+    document.getElementById("cattleUpdateModal").style.display = "none"
 }
 const cattleInsertClose = () => {
-    document.getElementById("insertModal").style.display = "none"
+    document.getElementById("cattleInsertModal").style.display = "none"
 }
 
 const cattleDeleteClose = () => {
-    document.getElementById("deleteModal").style.display = "none"
+    document.getElementById("deleteCattleModal").style.display = "none"
 }
 
+// UPDATE
+var cattleUpdateInfo = [];
 // GET COW ID
-const CowID = document.getElementById("ID");
+const CowID = document.getElementById("C_ID");
 CowID.addEventListener('blur', (e) => {
     console.log(e.target.value);
-    updateInfo[0] = e.target.value;
+    cattleUpdateInfo[0] = e.target.value;
 })
 
 // GET UPDATE FIELD NAME
-const fieldUpdate = document.getElementById("cattleUpdate");
-fieldUpdate.addEventListener('change', (e) => {
+const cFieldUpdate = document.getElementById("cattleUpdate");
+cFieldUpdate.addEventListener('change', (e) => {
     console.log('value', e.target.value);
-    updateInfo[1] = e.target.value;
-    console.log(updateInfo)
+    cattleUpdateInfo[1] = e.target.value;
+    console.log(cattleUpdateInfo)
 })
 
 // GET UPDATE DATA
-const fValue = document.getElementById("fieldValue");
-fValue.addEventListener('blur', (e) => {
+const cValue = document.getElementById("cFieldValue");
+cValue.addEventListener('blur', (e) => {
     console.log(e.target.value);
-    updateInfo[2] = e.target.value;
-    console.log(updateInfo);
+    cattleUpdateInfo[2] = e.target.value;
+    console.log(cattleUpdateInfo);
 })
-console.log(updateInfo)
+console.log(cattleUpdateInfo)
 
 // POST UPDATE DATA TO DATABASE
 const handleCattleUpdate = () => {
     console.log("click")
     fetch('http://localhost:2800/updatecattle', {
         method: 'POST',
-        body: JSON.stringify(updateInfo),
+        body: JSON.stringify(cattleUpdateInfo),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
@@ -310,6 +354,8 @@ const handleCattleUpdate = () => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error));
+        document.getElementById("cattleUpdateModal").style.display = "none"
+
 
 }
 
@@ -393,6 +439,7 @@ const handleCattleInsert = () => {
 
 }
 
+//DELETE
 var deleteInfo = [];
 const cId = document.getElementById("cId");
 cId.addEventListener('blur', (e) => {
@@ -414,17 +461,177 @@ const handleCattleDelete = () => {
         .catch(error => console.log(error));
 
 }
-// const handleCattleDelete = () => {
-//     console.log("delete click")
-//     fetch('http://localhost:2800/deletecattle', {
-//         method: 'POST',
-//         body: JSON.stringify(deleteInfo),
-//         headers: {
-//             "Content-type": "application/json; charset=UTF-8"
-//         }
-//     })
-//         .then(response => response.json())
-//         .then(json => console.log(json))
-//         .catch(error => console.log(error));
 
-// }
+
+
+
+// GOAT ALL MODAL SHOW
+const goatUpdateFunc = () => {
+    document.getElementById("goatUpdateModal").style.display = "block"
+    console.log("updateclick")
+}
+const goatInsertFunc = () => {
+    document.getElementById("goatInsertModal").style.display = "block"
+}
+const goatDeleteFunc = () => {
+    document.getElementById("deleteGoatModal").style.display = "block"
+}
+
+//GOAT CLOSE ALL MODAL
+const goatUpdateClose = () => {
+    document.getElementById("goatUpdateModal").style.display = "none"
+}
+const goatInsertClose = () => {
+    document.getElementById("goatInsertModal").style.display = "none"
+}
+const goatDeleteClose = () => {
+    document.getElementById("deleteGoatModal").style.display = "none"
+}
+// UPDATE
+var goatUpdateInfo = [];
+// GET GOAT ID
+const gID = document.getElementById("GID");
+gID.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    goatUpdateInfo[0] = e.target.value;
+})
+
+// GET UPDATE FIELD NAME
+const gFieldUpdate = document.getElementById("goatUpdate");
+gFieldUpdate.addEventListener('change', (e) => {
+    console.log('value', e.target.value);
+    goatUpdateInfo[1] = e.target.value;
+    console.log(goatUpdateInfo)
+})
+
+// GET UPDATE DATA
+const fValue = document.getElementById("gFieldValue");
+fValue.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    goatUpdateInfo[2] = e.target.value;
+    console.log(goatUpdateInfo);
+})
+console.log(goatUpdateInfo)
+
+// POST UPDATE DATA TO DATABASE
+const handleGoatUpdate = () => {
+    console.log("click")
+    fetch('http://localhost:2800/updategoat', {
+        method: 'POST',
+        body: JSON.stringify(goatUpdateInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(error => console.log(error));
+        document.getElementById("goatUpdateModal").style.display = "none"
+
+
+}
+
+//INSERT
+
+var insertInfo = [];
+const G_ID = document.getElementById("g_id");
+G_ID.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[0] = e.target.value;
+    console.log(insertInfo);
+})
+const g_br = document.getElementById("g_br");
+g_br.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[1] = e.target.value;
+    console.log(insertInfo);
+})
+const g_type = document.getElementById("g_type");
+g_type.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[2] = e.target.value;
+    console.log(insertInfo);
+})
+const g_color = document.getElementById("g_color");
+g_color.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[3] = e.target.value;
+    console.log(insertInfo);
+})
+const g_gender = document.getElementById("g_gender");
+g_gender.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[4] = e.target.value;
+    console.log(insertInfo);
+})
+const g_weight = document.getElementById("g_weight");
+g_weight.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[5] = e.target.value;
+    console.log(insertInfo);
+})
+const g_fdIntk = document.getElementById("g_fdIntk");
+g_fdIntk.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[6] = e.target.value;
+    console.log(insertInfo);
+})
+const g_mp = document.getElementById("g_mp");
+g_mp.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[7] = e.target.value;
+    console.log(insertInfo);
+})
+const g_s_no = document.getElementById("g_s_no");
+g_s_no.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[8] = e.target.value;
+    console.log(insertInfo);
+})
+const g_status = document.getElementById("g_status");
+g_status.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    insertInfo[9] = e.target.value;
+    console.log(insertInfo);
+})
+
+const handleGoatInsert = () => {
+    console.log("INSERT click")
+    fetch('http://localhost:2800/insertgoat', {
+        method: 'POST',
+        body: JSON.stringify(insertInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(error => console.log(error));
+        document.getElementById("goatInsertModal").style.display = "none"
+
+
+}
+
+
+var goatDeleteInfo = [];
+const gId = document.getElementById("gId");
+gId.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+    goatDeleteInfo[0] = e.target.value;
+    console.log(deleteInfo);
+})
+const handleGoatDelete = () => {
+    console.log("INSERT click")
+    fetch('http://localhost:2800/deletegoat', {
+        method: 'DELETE',
+        body: JSON.stringify(goatDeleteInfo),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(error => console.log(error));
+        document.getElementById("deleteGoatModal").style.display = "none"
+
+}

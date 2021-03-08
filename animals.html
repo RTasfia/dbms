@@ -26,6 +26,7 @@
       <button class="tablink" onclick="openPage('Duck', this, '#86c17a'),handleDuck()">Duck</button>
       <button class="tablink" onclick="openPage('Fish', this, '#86c17a'),handleFish()">Fish</button>
 
+      <!--***** CATTLE *****-->
       <div id="Cattle" class="tabcontent">
         <h3>Cattle Chart</h3>
         <table id="customers">
@@ -47,17 +48,17 @@
           </tbody>
         </table>
 
-        <!--UPDATE CATTLE-->
         <div class="mt-5">
+          <!--UPDATE CATTLE-->
           <button onclick="cattleUpdateFunc()" class="btn btn-success" id="updateBtn">Update</button>
-          <div id="updateModal" class="modal">
-            <!-- Modal content -->
+          <div id="cattleUpdateModal" class="modal">
             <div class="modal-content">
               <span onclick="cattleUpdateClose()" class="close">&times;</span>
               <form action="">
                 <div class="form-group">
-                  <label for="ID" style=" font-weight: 800;">Cow ID</label>
-                  <input id="ID" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp" required>
+                  <label for="C_ID" style=" font-weight: 800;">Cow ID</label>
+                  <input id="C_ID" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="ID" style=" font-weight: 800;">Field</label>
@@ -76,8 +77,9 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="fieldValue" style=" font-weight: 800;">Value</label>
-                  <input type="text" id="fieldValue" class="form-control" style="width: 50%;" aria-describedby="emailHelp" required>
+                  <label for="cFieldValue" style=" font-weight: 800;">Value</label>
+                  <input type="text" id="cFieldValue" class="form-control" style="width: 50%;"
+                    aria-describedby="emailHelp" required>
                 </div>
               </form>
               <button onclick="handleCattleUpdate()" style="width: 50%;" class="btn btn-success">Update</button>
@@ -85,10 +87,10 @@
 
           </div>
 
-           <!--INSERT CATTLE-->
+          <!--INSERT CATTLE-->
 
           <button onclick="cattleInsertFunc()" class="btn btn-success ml-3" id="insertBtn">Insert</button>
-          <div id="insertModal" class="modal">
+          <div id="cattleInsertModal" class="modal">
 
             <!-- Modal content -->
             <div class="modal-content">
@@ -96,55 +98,65 @@
               <form action="">
                 <div class="form-group">
                   <label for="c_id" style=" font-weight: 800;">Cow ID</label>
-                  <input id="c_id" type="text" class="form-control" style="width: 50%;"  aria-describedby="emailHelp" required>
+                  <input id="c_id" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="br" style=" font-weight: 800;">Breed</label>
-                  <input id="br" type="text" class="form-control" style="width: 50%;"  aria-describedby="emailHelp" required>
+                  <input id="br" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="c_type" style=" font-weight: 800;">Cow Type</label>
-                  <input id="c_type" type="text" class="form-control" style="width: 50%;"  aria-describedby="emailHelp" required>
+                  <input id="c_type" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="color" style=" font-weight: 800;">Color</label>
-                  <input id="color" type="text" class="form-control" style="width: 50%;"  aria-describedby="emailHelp" required>
+                  <input id="color" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="gender" style=" font-weight: 800;">Gender</label>
-                  <input id="gender" type="text" class="form-control" style="width: 50%;"  aria-describedby="emailHelp" required>
+                  <input id="gender" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="weight" style=" font-weight: 800;">Weight</label>
-                  <input id="weight" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp" required>
+                  <input id="weight" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="fdIntk" style=" font-weight: 800;">Food Intake</label>
-                  <input id="fdIntk" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp" required>
+                  <input id="fdIntk" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="mp" style=" font-weight: 800;">Milk Production</label>
-                  <input id="mp" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp" required>
+                  <input id="mp" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="s_no" style=" font-weight: 800;">Shed No</label>
-                  <input id="s_no" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp" required>
+                  <input id="s_no" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="status" style=" font-weight: 800;">Status</label>
-                  <input id="status" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp" required>
+                  <input id="status" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                    required>
                 </div>
-                
-                
+
+
               </form>
               <button onclick="handleCattleInsert()" style="width: 50%;" class="btn btn-success">Insert</button>
             </div>
 
           </div>
 
-           <!--DELETE CATTLE-->
+          <!--DELETE CATTLE-->
           <button onclick="cattleDeleteFunc()" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
-          <div id="deleteModal" class="modal">
+          <div id="deleteCattleModal" class="modal">
 
             <!-- Modal content -->
 
@@ -153,7 +165,8 @@
               <span onclick="cattleDeleteClose()" class="close">&times;</span>
               <div class="form-group">
                 <label for="cId" style=" font-weight: 800;">Cow ID</label>
-                <input id="cId" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp" required>
+                <input id="cId" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
               </div>
               <button onclick="handleCattleDelete()" style="width: 50%;" class="btn btn-success">Delete</button>
             </div>
@@ -167,6 +180,7 @@
 
     </div>
 
+    <!--***** GOAT *****-->
     <div style="width: 82%;" id="Goat" class="tabcontent mx-auto">
       <h3>Goat Chart</h3>
       <table id="customers">
@@ -185,13 +199,143 @@
           </tr>
         </thead>
         <tbody id="goatTable">
-
         </tbody>
-
-
       </table>
-    </div>
+      <div class="mt-5">
+        <!--UPDATE GOAT-->
+        <button onclick="goatUpdateFunc()" class="btn btn-success" id="updateBtn">Update</button>
+        <div id="goatUpdateModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span onclick="goatUpdateClose()" class="close">&times;</span>
+            <form action="">
+              <div class="form-group">
+                <label for="GID" style=" font-weight: 800;">Goat ID</label>
+                <input id="GID" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="goatUpdate" style=" font-weight: 800;">Field</label>
+                <br>
+                <select class="form-control" style="width: 50%;" name="goat" id="goatUpdate">
+                  <option value="G_ID">Select</option>
+                  <option value="Br_ID">Breed</option>
+                  <option value="G_Type">Goat Type</option>
+                  <option value="G_Color">Color</option>
+                  <option value="G_Gender">Gender</option>
+                  <option value="G_Weight">Weight</option>
+                  <option value="G_FoodIntake">Food Intake</option>
+                  <option value="G_MilkProduction">Milk Production</option>
+                  <option value="G_Shed_No">Shed No</option>
+                  <option value="G_Status">Status</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="gFieldValue" style=" font-weight: 800;">Value</label>
+                <input type="text" id="gFieldValue" class="form-control" style="width: 50%;"
+                  aria-describedby="emailHelp" required>
+              </div>
+            </form>
+            <button onclick="handleGoatUpdate()" style="width: 50%;" class="btn btn-success">Update</button>
+          </div>
 
+        </div>
+
+        <!--INSERT GOAT-->
+
+        <!--INSERT CATTLE-->
+
+        <button onclick="goatInsertFunc()" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+        <div id="goatInsertModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span onclick="goatInsertClose()" class="close">&times;</span>
+            <form action="">
+              <div class="form-group">
+                <label for="g_id" style=" font-weight: 800;">Goat ID</label>
+                <input id="g_id" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_br" style=" font-weight: 800;">Breed</label>
+                <input id="g_br" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_type" style=" font-weight: 800;">Goat Type</label>
+                <input id="g_type" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_color" style=" font-weight: 800;">Color</label>
+                <input id="g_color" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_gender" style=" font-weight: 800;">Gender</label>
+                <input id="g_gender" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_weight" style=" font-weight: 800;">Weight</label>
+                <input id="g_weight" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_fdIntk" style=" font-weight: 800;">Food Intake</label>
+                <input id="g_fdIntk" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_mp" style=" font-weight: 800;">Milk Production</label>
+                <input id="g_mp" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_s_no" style=" font-weight: 800;">Shed No</label>
+                <input id="g_s_no" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="g_status" style=" font-weight: 800;">Status</label>
+                <input id="g_status" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                  required>
+              </div>
+
+
+            </form>
+            <button onclick="handleGoatInsert()" style="width: 50%;" class="btn btn-success">Insert</button>
+          </div>
+
+        </div>
+
+        <!--DELETE CATTLE-->
+        <button onclick="goatDeleteFunc()" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+        <div id="deleteGoatModal" class="modal">
+
+          <!-- Modal content -->
+
+
+          <div class="modal-content">
+            <span onclick="goatDeleteClose()" class="close">&times;</span>
+            <div class="form-group">
+              <label for="gId" style=" font-weight: 800;">Cow ID</label>
+              <input id="gId" type="text" class="form-control" style="width: 50%;" aria-describedby="emailHelp"
+                required>
+            </div>
+            <button onclick="handleGoatDelete()" style="width: 50%;" class="btn btn-success">Delete</button>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+<!--***** CHICKEN *****-->
     <div style="width: 82%;" id="Chicken" class="tabcontent mx-auto">
       <h3>Chicken Chart</h3>
       <table id="customers">
@@ -208,13 +352,16 @@
           </tr>
         </thead>
         <tbody id="chickenTable">
-
         </tbody>
-
-
       </table>
+      <div class="mt-5">
+        <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
+        <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+        <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+      </div>
     </div>
 
+    <!-- ***** DUCK ***** -->
     <div style="width: 82%;" id="Duck" class="tabcontent mx-auto">
       <h3>Duck Chart</h3>
       <table id="customers">
@@ -231,12 +378,16 @@
           </tr>
         </thead>
         <tbody id="duckTable">
-
         </tbody>
-
       </table>
+      <div class="mt-5">
+        <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
+        <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+        <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+      </div>
     </div>
 
+    <!-- ***** FISH ***** -->
     <div style="width: 82%;" id="Fish" class="tabcontent mx-auto">
       <h3>Fishery Chart</h3>
       <table id="customers">
@@ -254,9 +405,13 @@
           </tr>
         </thead>
         <tbody id="fishTable">
-
         </tbody>
       </table>
+      <div class="mt-5">
+        <button onclick="" class="btn btn-success" id="updateBtn">Update</button>
+        <button onclick="" class="btn btn-success ml-3" id="insertBtn">Insert</button>
+        <button onclick="" class="btn btn-success ml-3" id="deleteBtn">Delete</button>
+      </div>
     </div>
 
 
@@ -301,7 +456,7 @@
 
 
   <script>
-    
+
 
 
 

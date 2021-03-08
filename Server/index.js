@@ -88,6 +88,32 @@ app.get("/fish", (req,res) => {
         }
     })
 })
+
+app.get("/avlproduct", (req,res) => {
+    connection.query (`SELECT * FROM available_product`, (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+})
+
+app.get("/supply", (req,res) => {
+    connection.query (`SELECT * FROM food`, (error, rows,fields)=> {
+        if(!!error) {
+            console.log("error in query");
+        }
+        else{
+            console.log("successful query");
+            console.log(rows);
+            res.send(rows);
+        }
+    })
+})
 app.get("/equipment", (req,res) => {
     connection.query ("SELECT * FROM equipment", (error, rows,fields)=> {
         if(!!error) {
@@ -149,6 +175,7 @@ app.get("/buyer", (req,res) => {
     })
 })
 
+//CATTLE
 app.post ("/updatecattle", (req,res) => {
      connection.query(`UPDATE cow SET ${req.body[1]}= ? WHERE Co_ID = ?`, [req.body[2],req.body[0]], (error, rows,fields)=>{
         if(!!error){
@@ -203,6 +230,64 @@ app.post ("/insertcattle", (req,res) => {
         console.log(`info${info[0]}`);
     });
    console.log(req);
+})
+
+//GOAT
+app.post ("/updategoat", (req,res) => {
+    connection.query(`UPDATE goat SET ${req.body[1]}= ? WHERE G_ID = ?`, [req.body[2],req.body[0]], (error, rows,fields)=>{
+       if(!!error){
+           console.log("error in query");
+       }
+       else{
+           console.log("successfull query");
+       }
+       console.log(rows)
+   });
+   console.log(req);
+})
+
+app.post ("/insertgoat", (req,res) => {
+    const info = req.body;
+    const id = info[0];
+    const brID = info[1];
+    const type = info[2];
+    const gender = info[3];
+    const color = info[4];
+    const weight = info[5];
+    const mp = info[6];
+    const fi = info[7];
+    const sn = info [8];
+    const st = info [9];
+    const values = [[id,brID,type,gender,color,weight,mp,fi,sn,st]];
+    // connection.query(`INSERT INTO cow (Co_ID,Br_ID, Co_Type,Co_Gender, Co_Color, Co_Weight, Co_MilkProduction, Co_FoodIntake, Co_Shed_No, Co_Status) VALUES (1,2,3,4,5,6,7,8,9,10)`, (error, rows, fields) => {
+    connection.query(`INSERT INTO goat VALUES ?`, [values],(error, rows,fields)=>{
+        if(!!error){
+            console.log("error in query");
+        }
+        else{
+            console.log("successfull query");
+        }
+        console.log(rows)
+        console.log(`info${info[0]}`);
+    });
+   console.log(req);
+})
+
+app.delete("/deletegoat",(req,res) => {
+    const info = req.body;
+    connection.query(`DELETE FROM goat WHERE G_ID = ${info[0]}`, (error, rows, fields) => {
+        // connection.query(`INSERT INTO cow SET ?`, info,(error, rows,fields)=>{
+            if(!!error){
+                console.log("error in query");
+            }
+            else{
+                console.log("successfull query");
+            }
+            console.log("rows",rows)
+            console.log("allinfo",info[0]);
+        });
+
+    console.log("info",info[0]);
 })
 
 // app.get("/equipment", (req,res) => {
